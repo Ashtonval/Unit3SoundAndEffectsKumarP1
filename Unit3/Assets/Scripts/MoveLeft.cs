@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
-    private float speed = 30;
+    public float speed = 30;
     private PlayerController playerControllerScript;
     private float leftBound = -15;
 
@@ -23,6 +23,14 @@ public class MoveLeft : MonoBehaviour
         if(transform.position.x < leftBound && gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            speed = 80;
+        }
+        if(Input.GetKeyUp(KeyCode.W))
+        {
+            speed = 30;
         }
     }
 }
