@@ -37,6 +37,15 @@ public class PlayerController : MonoBehaviour
             playerAudio.PlayOneShot(jumpSound, 1.0f);
             doubleJumpCounter += 1;
         }
+
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            playerAnim.SetTrigger("Dash_trig");
+        }
+        if(Input.GetKeyUp(KeyCode.W))
+        {
+            playerAnim.SetTrigger("Dash_unTrig");
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
